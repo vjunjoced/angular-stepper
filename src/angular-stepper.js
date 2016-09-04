@@ -10,9 +10,15 @@ angular.module('revolunet.stepper', [])
             ngModel: '=',
             ngDisabled: '='
         },
-        template: '<button type="button" ng-disabled="isOverMin() || ngDisabled" ng-click="decrement()">-</button>' +
-                  '<input type="text" ng-model="ngModel" ng-disabled="ngDisabled">' +
-                  '<button type="button" ng-disabled="isOverMax() || ngDisabled" ng-click="increment()">+</button>',
+        template: '<div class="input-group input-group-sm">'+
+                    '<div class="input-group-btn">'+
+                       '<button type="button" class="btn btn-info" ng-disabled="isOverMin()" ng-click="decrement()">-</button>'+
+                    '</div>'+
+                    '<input type="text" class="form-control text-center" ng-model="ngModel">' +
+                    '<div class="input-group-btn">'+
+                       '<button type="button" class="btn btn-info" ng-disabled="isOverMax()" ng-click="increment()">+</button>'+
+                    '</div>'+
+                 '</div>',
         link: function(scope, iElement, iAttrs, ngModelController) {
 
             scope.label = '';
